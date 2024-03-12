@@ -1,0 +1,140 @@
+<app-card [title]="'Dashboard'">
+  <div style="width: 99.9%">
+    <mbsc-eventcalendar
+      #scheduler
+      *ngIf="resourcesLoaded"
+      [ngClass]="'view-type-' + view"
+      [data]="myEvents"
+      [view]="calView"
+      [resources]="resources"
+      [invalid]="myInvalids"
+      [hourTemplate]="hourTemp"
+      [headerTemplate]="myHeaderTemplate"
+      [resourceTemplate]="myResourceTemplate"
+      [scheduleEventTemplate]="eventTemplate"
+      [colors]="colors"
+      [dragToCreate]="true"
+      [dragToResize]="true"
+      [dragToMove]="true"
+      [externalDrag]="true"
+      [externalDrop]="true"
+      [timeFormat]="'HH:mm'"
+      [invalidateEvent]="'start-end'"
+      (onCellDoubleClick)="cellDoubleClicked($event)"
+      (onEventCreateFailed)="eventUpdateFail()"
+      (onEventUpdateFailed)="eventUpdateFail()"
+      (onPageChange)="pageChanged($event)"
+    >
+      <ng-template #myHeaderTemplate>
+        <div class="users-filter">
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon class="material-icons-outlined">filter_list</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+          </mat-menu>
+        </div>
+        <div class="row justify-content-between">
+          <div class="col-auto">
+            <mbsc-calendar-nav class="md-work-week-nav"></mbsc-calendar-nav>
+          </div>
+          <div class="col-auto row">
+            <div class="md-work-week-picker">
+              <mat-button-toggle-group
+                [(ngModel)]="view"
+                (change)="changeView()"
+              >
+                <mat-button-toggle value="day">1 Day</mat-button-toggle>
+                <mat-button-toggle value="3days">3 Days</mat-button-toggle>
+                <mat-button-toggle value="workweek"
+                >Mon - Fri</mat-button-toggle
+                >
+                <mat-button-toggle value="month">1 Month</mat-button-toggle>
+              </mat-button-toggle-group>
+              <!--              <mbsc-segmented-group [(ngModel)]="view" (change)="changeView()">-->
+              <!--                <mbsc-segmented value="day">Day</mbsc-segmented>-->
+              <!--                <mbsc-segmented value="3days">3 days</mbsc-segmented>-->
+              <!--                <mbsc-segmented value="workweek">Work week</mbsc-segmented>-->
+              <!--                <mbsc-segmented value="month">Month</mbsc-segmented>-->
+              <!--              </mbsc-segmented-group>-->
+            </div>
+            <div class="col-auto">
+              <mbsc-calendar-prev
+                class="md-work-week-prev"
+              ></mbsc-calendar-prev>
+              <mbsc-calendar-today
+                class="md-work-week-today"
+              ></mbsc-calendar-today>
+              <mbsc-calendar-next
+                class="md-work-week-next"
+              ></mbsc-calendar-next>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template #hourTemp let-day>
+        <div class="md-date-header-hour">
+          <ng-container *ngIf="view === 'day'">
+            {{ day.date | date: 'h' }}
+          </ng-container>
+          <ng-container
+            *ngIf="
+              (view === 'workweek' || view === '3days') &&
+              ((day.date | date: 'H') === '8' ||
+                (day.date | date: 'H') === '16')
+            "
+          >
+            {{ day.date | date: 'h' }}
+          </ng-container>
+        </div>
+      </ng-template>
+    </mbsc-eventcalendar>
+    <ng-template #myResourceTemplate let-resource>
+      <div class="md-work-week-cont">
+        <div class="md-work-week-name">{{ resource.userName }}</div>
+      </div>
+    </ng-template>
+    <ng-template #eventTemplate let-data>
+      <div
+        [ngClass]="
+          'md-timeline-template-event reservation-type' +
+          data.original.reservationType
+        "
+      >
+        <div
+          *ngIf="data.original.serviceCallList?.length === 1"
+          [ngClass]="
+            'service-call-type service-call-type' +
+            data.original.serviceCallList[0].sapCallTypeId
+          "
+        ></div>
+
+        <div
+          *ngIf="data.original.serviceCallList?.length > 1"
+          class="service-call-type service-call-type-multiple"
+        ></div>
+        <div
+          *ngIf="!data.original.serviceCallList"
+          class="service-call-type"
+        ></div>
+
+        <div class="col-auto reservation-title">
+          {{ data.title }}
+        </div>
+        <div class="col-auto reservation-hours" *ngIf="!data.original.allDay">
+          {{ data.startDate | date: 'h:mm' }} -
+          {{ data.endDate | date: 'h:mm' }}
+        </div>
+        <div class="col-auto reservation-hours" *ngIf="data.original.allDay">
+          &nbsp;
+          <!--                  0:00 - 0:00-->
+        </div>
+        <div
+          [ngClass]="
+            'reservation-status reservation-status' +
+            data.original.reservationStatus
+          "
+        ></div>
+      </div>
+    </ng-template>
+  </div>
+</app-card>

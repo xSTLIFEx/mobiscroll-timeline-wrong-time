@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <div class="navbar-wrapper navbar-logo">
+      <img src="#" alt="Logo" />
+    </div>
+
+    <div class="navbar-actions justify-content-end">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <div class="row" *ngIf="user">
+            <button
+              class="language-button"
+              mat-button
+              [matMenuTriggerFor]="languagePicker"
+            >
+              <span class="material-icons-outlined">translate</span>
+              {{ activeLanguage }}
+            </button>
+            <mat-menu #languagePicker="matMenu">
+              <button mat-menu-item (click)="changeLanguage('en')">EN</button>
+              <button mat-menu-item (click)="changeLanguage('es')">ES</button>
+              <button mat-menu-item (click)="changeLanguage('pl')">PL</button>
+              <button mat-menu-item (click)="changeLanguage('se')">SE</button>
+              <button mat-menu-item (click)="changeLanguage('vn')">VN</button>
+              <button mat-menu-item (click)="changeLanguage('jp')">JP</button>
+              <button mat-menu-item (click)="changeLanguage('th')">TH</button>
+              <button mat-menu-item (click)="changeLanguage('cn')">CN</button>
+            </mat-menu>
+
+            <div class="user-info col">
+              <p>UserName</p>
+              <p>
+                <span>Role</span>
+              </p>
+            </div>
+            <button class="person-menu" mat-button [matMenuTriggerFor]="menu">
+              <i class="material-icons-outlined">person</i>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item [routerLink]="['/user-info']">
+                User Info
+              </button>
+              <button mat-menu-item (click)="logout()">
+                LogOut
+              </button>
+            </mat-menu>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

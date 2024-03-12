@@ -1,0 +1,176 @@
+
+mbsc-eventcalendar {
+  &::ng-deep {
+    .users-filter {
+      position: absolute;
+      top: 62px;
+      left: 0;
+    }
+
+    mbsc-calendar-view {
+      max-height: 600px;
+    }
+
+    .mbsc-calendar-controls {
+      & > .row {
+        width: 100%;
+
+        & > .col-auto {
+          &:first-child {
+            padding-left: 0;
+          }
+          &:last-child {
+            padding-right: 0;
+          }
+        }
+
+        & > .row {
+          .mat-button-toggle-appearance-standard
+          .mat-button-toggle-label-content {
+            line-height: 38px;
+            font-size: 14px;
+          }
+
+          .col-auto {
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+
+  &.view-type-workweek,
+  &.view-type-month {
+    &::ng-deep {
+      .mbsc-timeline-column,
+      .mbsc-timeline-header-column {
+        width: 0.5em;
+      }
+    }
+  }
+
+  &.view-type-3days {
+    &::ng-deep {
+      .mbsc-timeline-column,
+      .mbsc-timeline-header-column {
+        width: 10px;
+      }
+    }
+  }
+
+  &.view-type-day {
+    &::ng-deep {
+      .mbsc-timeline-column,
+      .mbsc-timeline-header-column {
+        width: auto;
+      }
+    }
+  }
+
+  &::ng-deep {
+    .mbsc-timeline-header-column {
+      border-left-color: #eee !important;
+      border-right-color: #eee !important;
+    }
+
+    .mbsc-timeline-row {
+      border-bottom-color: #e0e0e0 !important;
+
+      .mbsc-timeline-column {
+        border-left-color: #eee !important;
+        border-right-color: #eee !important;
+      }
+
+      .mbsc-material.mbsc-schedule-invalid {
+        background: transparent !important;
+        background-image: repeating-linear-gradient(
+            135deg,
+            rgba(244, 67, 54, 0.1),
+            rgba(244, 67, 54, 0.1) 4px,
+            transparent 4px,
+            transparent 9px
+        ) !important;
+        z-index: 1;
+      }
+    }
+
+    .md-date-header-hour {
+      position: absolute;
+      left: 1px;
+    }
+
+    /* Reduce the width of the resource column */
+    .mbsc-timeline-resource-col {
+      width: 100px;
+    }
+
+    .md-timeline-template-event {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5px 0;
+      background-color: #66bb6a;
+
+      .service-call-type,
+      .reservation-status {
+        position: absolute;
+        left: 0;
+        height: 5px;
+        width: 100%;
+      }
+
+      .service-call-type {
+        top: 0;
+      }
+
+      .reservation-status {
+        bottom: 0;
+      }
+
+      .col-auto {
+        padding: 0 2px;
+      }
+
+      .reservation-title,
+      .reservation-hours {
+        color: #fff;
+        font-size: 14px;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+.status-legend {
+  margin: 5px 0;
+
+  & > .col-auto {
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+
+  mat-form-field {
+    &::ng-deep {
+      .mat-form-field-wrapper {
+        margin: 0;
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  p {
+    margin-bottom: 0;
+
+    span {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+    }
+  }
+}

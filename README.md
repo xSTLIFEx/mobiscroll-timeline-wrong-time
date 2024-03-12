@@ -2,26 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.13.
 
-## Development server
+Example of wrong time in header when resources are not loaded - settimeout lazy load etc.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+![alt text](https://private-user-images.githubusercontent.com/26715189/312184761-f1d42212-bb91-4944-aefd-bd2f8b4a8965.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTAyNjYzODEsIm5iZiI6MTcxMDI2NjA4MSwicGF0aCI6Ii8yNjcxNTE4OS8zMTIxODQ3NjEtZjFkNDIyMTItYmI5MS00OTQ0LWFlZmQtYmQyZjhiNGE4OTY1LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDAzMTIlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwMzEyVDE3NTQ0MVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWQyZmZkYjdhNDk1Y2MzMTc4YWM4ZGU2YzAzN2E1MTliNzhmOTY0ZTRhMjc1OWNmZGYwYmM3MTk4YjBmZTAxNTAmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.DwvsZXrelyBIJ2fbLfvBD_ihdVuQlPUkxKZNud8pmhY)
 
-## Code scaffolding
+Solution:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![alt_text](https://private-user-images.githubusercontent.com/26715189/312187097-f58518e0-57b0-4de3-b7b0-21974f84b96e.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTAyNjY0NTYsIm5iZiI6MTcxMDI2NjE1NiwicGF0aCI6Ii8yNjcxNTE4OS8zMTIxODcwOTctZjU4NTE4ZTAtNTdiMC00ZGUzLWI3YjAtMjE5NzRmODRiOTZlLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDAzMTIlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwMzEyVDE3NTU1NlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWI3OWMzZTk4NDQ1NzAxNmExYmE0YzhhZTlmM2MwMzBmNWE5MjZkNDAwN2U0MGZhNjE1M2M0NGM3OGY4MTgxYmQmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.1eZyfpPxpj5DzPm9VgegSu7RJcSBy4wBp5SvRCep-I4)
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

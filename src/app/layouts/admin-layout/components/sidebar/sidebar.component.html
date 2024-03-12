@@ -1,0 +1,17 @@
+<div
+  class="sidebar-content col"
+  [ngClass]="{ 'sidebar-content-full': showText }"
+>
+  <div class="toggle-text" (click)="toggleText()">
+    <i class="material-icons">menu</i>
+  </div>
+  <hr />
+  <ul class="col">
+    <li routerLinkActive="active" class="nav-item">
+      <a class="nav-link row align-items-center" [routerLink]="['/dashboard']">
+        <i class="material-icons-outlined">dashboard</i>
+        <p *ngIf="showText">Home</p>
+      </a>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,127 @@
+
+.sidebar-content {
+  height: 100%;
+  background-color: rgb(243, 242, 241);
+  box-shadow:
+    4px 0px 18px 0px rgb(0 0 0 / 12%),
+    7px 0px 10px -5px rgb(0 0 0 / 15%);
+  padding: 0;
+  border-right: 1px solid rgb(225, 223, 221);
+
+  &.sidebar-content-full {
+    min-width: 190px;
+  }
+
+  .toggle-text {
+    height: 44px;
+    width: 59px;
+    padding: 10px 15px 10px 15px;
+    cursor: pointer;
+
+    i {
+      color: rgb(60, 72, 88);
+    }
+  }
+
+  hr {
+    margin: 0;
+  }
+
+  ul {
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
+
+    li {
+      text-decoration: none;
+      cursor: pointer;
+
+      p,
+      i {
+        color: #fff;
+      }
+
+      &.active {
+        a {
+          background: #fff;
+          border-left-color: #1976d2;
+        }
+      }
+
+      a {
+        flex-wrap: nowrap;
+        width: 100%;
+        display: inline-flex;
+        padding: 15px 15px;
+        border-left: 5px solid transparent;
+
+        &:hover {
+          background: #fff;
+          border-left-color: #1976d2;
+        }
+
+        p,
+        i {
+          color: #3b3a39;
+        }
+
+        i {
+          font-size: 22px;
+        }
+
+        p {
+          padding-right: 25px;
+          padding-left: 10px;
+          margin-bottom: 0;
+          font-size: 14px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}
+
+::ng-deep .dark-theme {
+  .sidebar-content {
+    background-color: #303030;
+    box-shadow:
+      4px 0px 18px 0px rgb(0 0 0 / 12%),
+      7px 0px 10px -5px rgb(0 0 0 / 15%);
+    border-top: 3px solid #303030;
+    border-right: 0;
+
+    .toggle-text {
+      i {
+        color: #bfbfbf !important;
+      }
+    }
+
+    ul {
+      li {
+        p,
+        i {
+          color: #fff !important;
+        }
+
+        &.active {
+          a {
+            background: #e3a500 !important;
+
+            p,
+            i {
+              color: #0f1b22 !important;
+            }
+          }
+        }
+
+        a {
+          border-left: 0 !important;
+
+          &:hover {
+            background: #785a1c !important;
+          }
+        }
+      }
+    }
+  }
+}
